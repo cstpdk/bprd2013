@@ -1,0 +1,17 @@
+
+F# Interactive for F# 3.0 (Open Source Edition)
+Freely distributed under the Apache 2.0 Open Source License
+
+For help type #help;;
+
+[Loading /home/csp/projects/itu/5.semester/bprd/handins/handin3/Fun/Absyn.fs
+ Loading /home/csp/projects/itu/5.semester/bprd/handins/handin3/Fun/FunPar.fs
+ Loading /home/csp/projects/itu/5.semester/bprd/handins/handin3/Fun/FunLex.fs
+ Loading /home/csp/projects/itu/5.semester/bprd/handins/handin3/Fun/Parse.fs
+ Loading /home/csp/projects/itu/5.semester/bprd/handins/handin3/Fun/Fun.fs
+ Loading /home/csp/projects/itu/5.semester/bprd/handins/handin3/Fun/ParseAndRun.fs]
+> > > > > > > > > ############ - 4.2 - ###############
+val it : unit = ()
+> > > > > ############ - 4.3 - ###############
+val it : unit = ()
+> 

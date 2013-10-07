@@ -1,0 +1,177 @@
+
+F# Interactive for F# 3.0 (Open Source Edition)
+Freely distributed under the Apache 2.0 Open Source License
+
+For help type #help;;
+
+[Loading /home/csp/projects/itu/5.semester/bprd/handins/handin2/Expr/Absyn.fs
+ Loading /home/csp/projects/itu/5.semester/bprd/handins/handin2/Expr/ExprPar.fs
+ Loading /home/csp/projects/itu/5.semester/bprd/handins/handin2/Expr/ExprLex.fs
+ Loading /home/csp/projects/itu/5.semester/bprd/handins/handin2/Expr/Parse.fs
+ Loading /home/csp/projects/itu/5.semester/bprd/handins/handin2/Expr/Expr.fs]
+
+namespace FSI_0002
+  type expr =
+    | CstI of int
+    | Var of string
+    | Let of string * expr * expr
+    | Prim of string * expr * expr
+
+
+namespace FSI_0002
+  type token =
+    | EOF
+    | LPAR
+    | RPAR
+    | END
+    | IN
+    | LET
+    | PLUS
+    | MINUS
+    | TIMES
+    | DIVIDE
+    | EQ
+    | NAME of string
+    | CSTINT of int
+  type tokenId =
+    | TOKEN_EOF
+    | TOKEN_LPAR
+    | TOKEN_RPAR
+    | TOKEN_END
+    | TOKEN_IN
+    | TOKEN_LET
+    | TOKEN_PLUS
+    | TOKEN_MINUS
+    | TOKEN_TIMES
+    | TOKEN_DIVIDE
+    | TOKEN_EQ
+    | TOKEN_NAME
+    | TOKEN_CSTINT
+    | TOKEN_end_of_input
+    | TOKEN_error
+  type nonTerminalId =
+    | NONTERM__startMain
+    | NONTERM_Main
+    | NONTERM_Expr
+  val tagOfToken : t:token -> int
+  val tokenTagToTokenId : tokenIdx:int -> tokenId
+  val prodIdxToNonTerminal : prodIdx:int -> nonTerminalId
+  val _fsyacc_endOfInputTag : int
+  val _fsyacc_tagOfErrorTerminal : int
+  val token_to_string : t:token -> string
+  val _fsyacc_dataOfToken : t:token -> System.Object
+  val _fsyacc_gotos : uint16 []
+  val _fsyacc_sparseGotoTableRowOffsets : uint16 []
+  val _fsyacc_stateToProdIdxsTableElements : uint16 []
+  val _fsyacc_stateToProdIdxsTableRowOffsets : uint16 []
+  val _fsyacc_action_rows : int
+  val _fsyacc_actionTableElements : uint16 []
+  val _fsyacc_actionTableRowOffsets : uint16 []
+  val _fsyacc_reductionSymbolCounts : uint16 []
+  val _fsyacc_productionToNonTerminalTable : uint16 []
+  val _fsyacc_immediateActions : uint16 []
+  val _fsyacc_reductions : unit -> (Parsing.IParseState -> obj) []
+  val tables : unit -> Parsing.Tables<token>
+  val engine :
+    lexer:(Lexing.LexBuffer<'a> -> token) ->
+      lexbuf:Lexing.LexBuffer<'a> -> startState:int -> obj
+  val Main :
+    lexer:(Lexing.LexBuffer<'a> -> token) ->
+      lexbuf:Lexing.LexBuffer<'a> -> Absyn.expr
+
+
+namespace FSI_0002
+  val lexemeAsString : lexbuf:Lexing.LexBuffer<char> -> string
+  val keyword : s:string -> ExprPar.token
+  val trans : uint16 [] array
+  val actions : uint16 []
+  val _fslex_tables : Lexing.UnicodeTables
+  val _fslex_dummy : unit -> 'a
+  val Token : lexbuf:Lexing.LexBuffer<char> -> ExprPar.token
+  val _fslex_Token :
+    _fslex_state:int -> lexbuf:Lexing.LexBuffer<char> -> ExprPar.token
+
+
+namespace FSI_0002
+  val fromString : str:string -> Absyn.expr
+  val fromFile : filename:string -> Absyn.expr
+
+
+namespace FSI_0002
+  val e1 : Absyn.expr
+  val e2 : Absyn.expr
+  val e3 : Absyn.expr
+  val e4 : Absyn.expr
+  val e5 : Absyn.expr
+  val e6 : Absyn.expr
+  val e7 : Absyn.expr
+  val e8 : Absyn.expr
+  val e9 : Absyn.expr
+  val es : Absyn.expr list
+  val fmt1 : e:Absyn.expr -> string
+  val fmt2 : ctxpre:int -> e:Absyn.expr -> string
+  val wrappar : ctxpre:int -> pre:int -> ss:string list -> string
+  val fmt : e:Absyn.expr -> string
+  val lookup : env:(string * 'a) list -> x:string -> 'a
+  val eval : e:Absyn.expr -> env:(string * int) list -> int
+  val run : e:Absyn.expr -> int
+  val mem : x:'a -> vs:'a list -> bool when 'a : equality
+  val closedin : e:Absyn.expr -> env:string list -> bool
+  val closed1 : e:Absyn.expr -> bool
+  val union : xs:'a list -> ys:'a list -> 'a list when 'a : equality
+  val minus : xs:'a list -> ys:'a list -> 'a list when 'a : equality
+  val freevars : e:Absyn.expr -> string list
+  val closed2 : e:Absyn.expr -> bool
+  type texpr =
+    | TCstI of int
+    | TVar of int
+    | TLet of texpr * texpr
+    | TPrim of string * texpr * texpr
+  val getindex : env:'a list -> x:'a -> int when 'a : equality
+  val tcomp : e:Absyn.expr -> cenv:string list -> texpr
+  val teval : e:texpr -> renv:int list -> int
+  type rinstr =
+    | RCstI of int
+    | RAdd
+    | RSub
+    | RMul
+    | RDup
+    | RSwap
+  val reval : inss:rinstr list -> stack:int list -> int
+  val rpn1 : int
+  val rcomp : e:Absyn.expr -> rinstr list
+  type sinstr =
+    | SCstI of int
+    | SVar of int
+    | SAdd
+    | SSub
+    | SMul
+    | SPop
+    | SSwap
+  val seval : inss:sinstr list -> stack:int list -> int
+  type rtvalue =
+    | Bound of string
+    | Intrm
+  val scomp : e:Absyn.expr -> cenv:rtvalue list -> sinstr list
+  val s1 : sinstr list
+  val s2 : sinstr list
+  val s3 : sinstr list
+  val intsToFile : inss:int list -> fname:string -> unit
+
+> > > val it : int = 14
+> val it : int = 14
+> val it : int = 14
+> 
+val code1 : sinstr list = [SCstI 2; SCstI 3; SCstI 4; SMul; SAdd]
+
+> val it : int = 14
+> 
+val code2 : sinstr list = [SCstI 2; SVar 1; SCstI 4; SMul; SAdd]
+
+> val it : int = 14
+> 
+val code3 : sinstr list =
+  [SCstI 1; SCstI 2; SAdd; SCstI 2; SVar 1; SCstI 4; SMul; SAdd; SSwap; SPop]
+
+> val it : int = 14
+> 

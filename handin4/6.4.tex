@@ -1,0 +1,64 @@
+\documentclass[12pt]{article}
+\usepackage{bussproofs}
+\usepackage{amssymb}
+\usepackage{latexsym}
+
+% This is the "centered" symbol
+\def\fCenter{{\mbox{\Large$\rightarrow$}}}
+
+% Optional to turn on the short abbreviations
+\EnableBpAbbreviations
+
+% \alwaysRootAtTop  % makes proofs upside down
+% \alwaysRootAtBottom % -- this is the default setting
+
+\begin{document}
+opg. 1
+\begin{prooftree}
+
+        \AxiomC{}
+    \UnaryInfC{$\rho[
+            x \mapsto t_x . 
+            f \mapsto t_x 
+            \rightarrow int
+            ] \mapsto 1 : int$}
+
+        \AxiomC{$\rho \mapsto f : (\alpha \rightarrow int) \rightarrow int$}
+        \AxiomC{$\rho \mapsto f: \alpha $}
+    \BinaryInfC{$\rho[f \mapsto \forall \alpha . t_x \rightarrow int ]$}
+    
+    \AxiomC{$\alpha$ not free in $\rho$}
+    
+    \TrinaryInfC{$$let f x = 1 in f f end$$}
+\end{prooftree}
+opg. 2
+\begin{prooftree}
+                \AxiomC{$\rho \vdash$ x$<$10:bool}
+                \AxiomC{$\rho \vdash$ 42:int}
+            \BinaryInfC{$\rho \vdash$ x$<$10:bool}
+
+                \AxiomC{}
+            \UnaryInfC{$\rho \vdash$ 42:int}
+                    \AxiomC{p(f)=$V_a1...an \cdot$ int}
+                \UnaryInfC{$\rho \vdash$:int $\rightarrow t_r$}
+                    \AxiomC{$\rho \vdash$:int}
+                    \AxiomC{$\rho \vdash$1:int}
+                \BinaryInfC{$\rho \vdash$ x+1:$t_x$}
+            \BinaryInfC{$\rho \vdash$ f(x+1):$t_r$}
+        \TrinaryInfC{
+            $\rho[x \mapsto t_x ,f \mapsto t_x \mapsto t_r]$
+            $\vdash$ if x $<$ 10 then 42 else f(x+1)
+        }
+        \AxiomC{p(f)=$V_a1...an \cdot$ int}
+            \UnaryInfC{
+                $\rho \vdash$f:int$\rightarrow t_r$ 
+            }
+                \AxiomC{}
+            \UnaryInfC{$\rho \vdash$20:int}
+        \BinaryInfC{
+            $\rho$[f $\mapsto$ $V_a1...an * t_x \mapsto t_r]$
+            $\vdash$ f 20: tr
+        }
+    \BinaryInfC{let f x = if x $<$ 10 then 42 else f(x+1) in f 20 end}
+\end{prooftree}
+\end{document}

@@ -1,0 +1,65 @@
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <Down> <Nop>
+inoremap <Up> <Nop>
+inoremap <Right> <Nop>
+inoremap <Left> <Nop>
+nnoremap  
+nnoremap <NL> <NL>
+nnoremap  
+nnoremap  
+xnoremap & :&&
+nnoremap & :&&
+nnoremap Y y$
+vmap [% [%m'gv``
+vmap ]% ]%m'gv``
+vmap a% [%v]%
+nmap gx <Plug>NetrwBrowseX
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
+map <Down> <Nop>
+map <Up> <Nop>
+map <Right> <Nop>
+map <Left> <Nop>
+inoremap  u
+inoremap jj 
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set autoindent
+set autoread
+set background=dark
+set backspace=indent,eol,start
+set backupdir=~/tmp
+set complete=.,w,b,u,t
+set display=lastline
+set expandtab
+set fileencodings=ucs-bom,utf-8,default,latin1
+set fileformats=unix,dos,mac
+set helplang=en
+set history=1000
+set hlsearch
+set incsearch
+set laststatus=2
+set listchars=tab:⇥\ ,trail:␣,extends:⇉,precedes:⇇,nbsp:·
+set nrformats=hex
+set omnifunc=syntaxcomplete#Complete
+set printoptions=paper:a4
+set ruler
+set runtimepath=~/.vim,~/.vim/bundle/Floobits,~/.vim/bundle/fsharp-vim,~/.vim/bundle/vim-dart,~/.vim/bundle/vim-sensible,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim73,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
+set scrolloff=1
+set shiftround
+set shiftwidth=4
+set showcmd
+set showmatch
+set sidescrolloff=5
+set smartindent
+set smarttab
+set softtabstop=4
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set tabpagemax=50
+set ttimeout
+set ttimeoutlen=50
+set undofile
+set viminfo=!,'100,<50,s10,h
+set wildmenu
+" vim: set ft=vim :

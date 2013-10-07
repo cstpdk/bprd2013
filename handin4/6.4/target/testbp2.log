@@ -1,0 +1,196 @@
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.11.6)  30 SEP 2013 15:55
+entering extended mode
+ %&-line parsing enabled.
+**testbp2.tex
+(./testbp2.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
+ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
+9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
+skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
+orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
+, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
+rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size12.clo
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-texlive/tex/latex/bussproofs/bussproofs.sty
+Proof Tree (bussproofs) style macros. Version 1.0.
+\theLevel=\count87
+\myMaxLevel=\count88
+\myBoxA=\box26
+\myBoxB=\box27
+\myBoxC=\box28
+\myBoxD=\box29
+\myBoxLL=\box30
+\myBoxRL=\box31
+\thisAboveSkip=\dimen103
+\thisBelowSkip=\dimen104
+\newScoreStart=\dimen105
+\newScoreEnd=\dimen106
+\newCenter=\dimen107
+\displace=\dimen108
+\leftLowerAmt=\dimen109
+\rightLowerAmt=\dimen110
+\scoreHeight=\dimen111
+\scoreDepth=\dimen112
+\htLbox=\dimen113
+\htRbox=\dimen114
+\htAbox=\dimen115
+\htCbox=\dimen116
+) (/usr/share/texmf-texlive/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2009/06/22 v3.00
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+\@emptytoks=\toks14
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+))
+(/usr/share/texmf-texlive/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+) (target/testbp2.aux)
+\openout1 = `testbp2.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Try loading font information for U+msa on input line 30.
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 30.
+
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 30.
+
+(/usr/share/texmf-texlive/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+\myBox1=\box32
+\myScoreStart1=\dimen117
+\myCenter1=\dimen118
+\myScoreEnd1=\dimen119
+\myBox2=\box33
+\myScoreStart2=\dimen120
+\myCenter2=\dimen121
+\myScoreEnd2=\dimen122
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+\myBox3=\box34
+\myScoreStart3=\dimen123
+\myCenter3=\dimen124
+\myScoreEnd3=\dimen125
+ [2]
+\myBox4=\box35
+\myScoreStart4=\dimen126
+\myCenter4=\dimen127
+\myScoreEnd4=\dimen128
+\myBox5=\box36
+\myScoreStart5=\dimen129
+\myCenter5=\dimen130
+\myScoreEnd5=\dimen131
+
+! Undefined control sequence.
+l.246 \QuinaryInf
+                 $X\fCenter XXXXX$
+? 
+\myBox6=\box37
+\myScoreStart6=\dimen132
+\myCenter6=\dimen133
+\myScoreEnd6=\dimen134
+\myBox7=\box38
+\myScoreStart7=\dimen135
+\myCenter7=\dimen136
+\myScoreEnd7=\dimen137
+\myBox8=\box39
+\myScoreStart8=\dimen138
+\myCenter8=\dimen139
+\myScoreEnd8=\dimen140
+! Undefined control sequence.
+l.252 \QuaternaryInf
+                    $X\fCenter XXXXX$
+? 
+! Proof tree badly specified..
+\DisplayProof ...age {Proof tree badly specified.}
+                                                  \fi \edef \curBox {\thecur...
+l.254 \end{prooftree}
+                     
+? 
+! Undefined control sequence.
+l.266 \QuinaryInf
+                 $X\fCenter XXXXX$
+? 
+! Undefined control sequence.
+l.272 \QuaternaryInf
+                    $X\fCenter XXXXX$
+? 
+! Proof tree badly specified..
+\DisplayProof ...age {Proof tree badly specified.}
+                                                  \fi \edef \curBox {\thecur...
+l.274 \end{prooftree}
+                     
+? 
+\gnBoxA=\box40
+\gnCornerHgt=\dimen141
+\gnArgHgt=\dimen142
+[3] (target/testbp2.aux) ) 
+Here is how much of TeX's memory you used:
+ 742 strings out of 493848
+ 8473 string characters out of 1152823
+ 60435 words of memory out of 3000000
+ 4056 multiletter control sequences out of 15000+50000
+ 13650 words of font info for 58 fonts, out of 3000000 for 9000
+ 714 hyphenation exceptions out of 8191
+ 23i,5n,24p,203b,182s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.
+pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/sh
+are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public
+/amsfonts/cm/cmr6.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
+cmr8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
+usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/te
+xmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/
+fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf-texlive/fonts/type1
+/public/amsfonts/symbols/msam10.pfb>
+Output written on target/testbp2.pdf (3 pages, 135649 bytes).
+PDF statistics:
+ 64 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+\usepackage{bussproofs}
+\usepackage{amssymb}
+\usepackage{latexsym}
+
+% This is the "centered" symbol
+\def\fCenter{{\mbox{\Large$\rightarrow$}}}
+
+% Optional to turn on the short abbreviations
+\EnableBpAbbreviations
+
+% \alwaysRootAtTop  % makes proofs upside down
+% \alwaysRootAtBottom % -- this is the default setting
+
+\begin{document}
+
+\begin{prooftree}
+
+        \AxiomC{}
+    \UnaryInfC{$\rho[
+            x \mapsto t_x . 
+            f \mapsto t_x 
+            \rightarrow int
+            ] \mapsto 1 : int$}
+
+            \AxiomC{$\rho \mapsto f : (\alpha \rightarrow int) \rightarrow int$}
+            \AxiomC{$\rho \mapsto f: \alpha $}
+        \BinaryInfC{$\rho[f \mapsto \forall \alpha . t_x \rightarrow int ]$}
+    
+    \AxiomC{$\alpha$ not free in $\rho$}
+    
+    \TrinaryInfC{$$let f x = 1 in f f end$$}
+\end{prooftree}
+
+\end{document}
