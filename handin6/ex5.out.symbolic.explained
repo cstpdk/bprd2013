@@ -1,0 +1,23 @@
+[
+LDARGS; CALL (1,"L1"); STOP; Label "L1";   // void main(int n)
+INCSP 1; GETBP;                             // int r;  
+CSTI 1; ADD; GETBP;CSTI 0; ADD; LDI; STI; INCSP -1; // r = n;
+    INCSP 1; GETBP;                         // int r;
+        CSTI 0;ADD;LDI;                         // n              
+        GETBP; CSTI 2; ADD;                     // &r 
+    CALL (2,"L2"); INCSP -1;                // square(n,&r) 
+    GETBP; CSTI 2; ADD; LDI; PRINTI;        // print r
+INCSP -1; INCSP -1;                         // Disregard print and r
+GETBP; CSTI 1; ADD; LDI; PRINTI;            // print r
+INCSP -1; INCSP -1;                         // disregard print and r
+RET 0;                                      // } end main 
+
+Label "L2";                                 // void square 
+GETBP; CSTI 1; ADD; LDI;                    // *rp 
+    GETBP; CSTI 0; ADD; LDI;                    // int i 
+    GETBP;CSTI 0; ADD; LDI;                     // int i
+    MUL;                                        // i * i 
+STI; INCSP -1;                              // *rp =  
+INCSP 0;                                    // This is unoptimal 
+RET 1                                       // return from square
+]
