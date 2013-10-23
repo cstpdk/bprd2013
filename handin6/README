@@ -1,0 +1,8 @@
+Hej TAs
+
+Jeg har simpelthen givet op på den sidste opgave (den med switch). 
+Min ellers flotte c kode vil ikke parse, og jeg har stirret mig for 
+blind til at gennemskue hvad der er galt. Jeg har forsøgt at implementere
+alle dele dog (lexer,parse,absyn,compiler), så min tiltænkte fremgangsmåde
+bør være klar. Jeg håber i kan give en vurdering baseret på det, og meget
+gerne nogle vise ord til hvordan jeg kan løse opgaven. På forhånd tak :)

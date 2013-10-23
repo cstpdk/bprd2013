@@ -28,6 +28,9 @@ let keyword s =
     | "true"    -> CSTBOOL 1
     | "void"    -> VOID 
     | "while"   -> WHILE         
+    | "for"     -> FOR         
+    | "switch"  -> SWITCH
+    | "case"    -> CASE
     | _         -> NAME s
  
 let cEscape s = 
@@ -51,7 +54,9 @@ rule Token = parse
   | ['a'-'z''A'-'Z']['a'-'z''A'-'Z''0'-'9']*
                     { keyword (lexemeAsString lexbuf) }
   | '+'             { PLUS } 
+  | "++"            { PREINC }
   | '-'             { MINUS } 
+  | "--"            { PREDEC }
   | '*'             { TIMES } 
   | '/'             { DIV } 
   | '%'             { MOD }                     
@@ -74,6 +79,8 @@ rule Token = parse
   | ']'             { RBRACK }
   | ';'             { SEMI }
   | ','             { COMMA }
+  | '?'             { QMARK }
+  | ':'             { COLON }
   | "//"            { EndLineComment lexbuf; Token lexbuf }
   | "/*"            { Comment lexbuf; Token lexbuf }
   | '"'             { CSTSTRING (String [] lexbuf) }

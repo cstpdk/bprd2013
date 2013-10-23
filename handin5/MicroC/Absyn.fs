@@ -3,7 +3,7 @@
    sestoft@itu.dk 2009-09-25
 
    Must precede Interp.fs, Comp.fs and Contcomp.fs in Solution Explorer
- *)
+*)
 
 module Absyn
 

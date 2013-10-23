@@ -1,2 +1,5 @@
 *.un~
 *.sw{p,o}
+*.zip
+*.bak
+*.ak

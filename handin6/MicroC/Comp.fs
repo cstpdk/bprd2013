@@ -142,7 +142,15 @@ let rec cStmt stmt (varEnv : varEnv) (funEnv : funEnv) : instr list =
     | Return None -> 
       [RET (snd varEnv - 1)]
     | Return (Some e) -> 
-      cExpr e varEnv funEnv @ [RET (snd varEnv)]
+        cExpr e varEnv funEnv @ [RET (snd varEnv)]
+    | Switch (e,cs) ->  
+        match cs with
+        | [] -> []
+        | c :: crest -> cExpr e varEnv funEnv @ cStmt c varEnv funEnv
+    | Case (e,s) -> 
+    // Assume calculates from loop is prepended 
+    let labend = newLabel()
+    | EQ @ IFZRO labend @ cExpr e varEnv funEnv @ labend
 
 and cStmtOrDec stmtOrDec (varEnv : varEnv) (funEnv : funEnv) : varEnv * instr list = 
     match stmtOrDec with 
@@ -167,6 +175,13 @@ and cExpr (e : expr) (varEnv : varEnv) (funEnv : funEnv) : instr list =
     | Assign(acc, e) -> cAccess acc varEnv funEnv @ cExpr e varEnv funEnv @ [STI]
     | CstI i         -> [CSTI i]
     | Addr acc       -> cAccess acc varEnv funEnv
+    | Conditional(e1,e2,e3) -> 
+      let labelse = newLabel()
+      let labend  = newLabel()
+      cExpr e1 varEnv funEnv @ [IFZERO labelse] 
+      @ cExpr e2 varEnv funEnv @ [GOTO labend]
+      @ [Label labelse] @ cExpr e3 varEnv funEnv
+      @ [Label labend]           
     | Prim1(ope, e1) ->
       cExpr e1 varEnv funEnv
       @ (match ope with
@@ -204,7 +219,9 @@ and cExpr (e : expr) (varEnv : varEnv) (funEnv : funEnv) : instr list =
       @ [IFNZRO labtrue]
       @ cExpr e2 varEnv funEnv
       @ [GOTO labend; Label labtrue; CSTI 1; Label labend]
-    | Call(f, es) -> callfun f es varEnv funEnv
+    | Call(f, es)   -> callfun f es varEnv funEnv
+    | PreInc acc    -> cAccess acc varEnv funEnv @ [DUP;LDI;CSTI 1;ADD;STI] 
+    | PreDec acc    -> cAccess acc varEnv funEnv @ [DUP;LDI;CSTI 1;SUB;STI] 
 
 (* Generate code to access variable, dereference pointer or index array.
    The effect of the compiled code is to leave an lvalue on the stack.   *)
