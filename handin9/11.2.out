@@ -1,0 +1,16 @@
+
+F# Interactive for F# 3.0 (Open Source Edition)
+Freely distributed under the Apache 2.0 Open Source License
+
+For help type #help;;
+
+> 
+val revc : xs:'a list -> k:('a list -> 'b) -> 'b
+
+> val it : int list = [5; 4; 3; 2; 1]
+> val it : int list = [5; 4; 3; 2; 1; 5; 4; 3; 2; 1]
+> 
+val revi : xs:'a list -> acc:'a list -> 'a list
+val it : int list = [5; 4; 3; 2; 1]
+
+> 

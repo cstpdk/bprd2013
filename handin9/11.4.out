@@ -1,0 +1,19 @@
+
+F# Interactive for F# 3.0 (Open Source Edition)
+Freely distributed under the Apache 2.0 Open Source License
+
+For help type #help;;
+
+> 
+val prodc : xs:int list -> k:(int -> int) -> int
+
+> val it : int = 120
+> Arg0. NOT GONNA FLY WHITEBOY 
+val it : int = 0
+> 
+val prodi : xs:int list -> acc:int -> int
+
+> val it : int = 0
+> Arg0. NOT GONNA FLY WHITEBOY 
+val it : int = 0
+> 

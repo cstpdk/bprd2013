@@ -1,0 +1,10 @@
+F# Interactive for F# 3.0 (Open Source Edition)
+Freely distributed under the Apache 2.0 Open Source License
+
+For help type #help;;
+
+> 
+val prodc : xs:int list -> k:(int -> 'a) -> 'a
+
+> val it : int = 120
+> 

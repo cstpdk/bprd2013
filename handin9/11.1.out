@@ -1,0 +1,19 @@
+
+F# Interactive for F# 3.0 (Open Source Edition)
+Freely distributed under the Apache 2.0 Open Source License
+
+For help type #help;;
+
+> 
+val id : v:'a -> 'a
+val ud : v:int -> int
+val lenc : xs:'a list -> k:(int -> 'b) -> 'b
+
+> The answer us '3' 
+val it : unit = ()
+> val it : int = 6
+> 
+val leni : xs:'a list -> i:int -> int
+
+> val it : int = 3
+> 

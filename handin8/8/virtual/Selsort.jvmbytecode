@@ -1,0 +1,50 @@
+public static void SelectionSort(int[]);
+  Code:
+   Stack=4, Locals=4, Args_size=1 //stacksize max, local vars, and number of args
+   0:	iconst_0     //push 0 to the stack
+   1:	istore_1     // store in i
+   2:	iload_1      //load i
+   3:	aload_0      //load arr
+   4:	arraylength   //load length of arr and push to stack
+   5:	if_icmpge	57  //compare i and length if not true goto 57
+   8:	iload_1       // load i
+   9:	istore_2      //least = i
+   10:	iload_1     //load i
+   11:	iconst_1    //push 1 to stack
+   12:	iadd        //i +1
+   13:	istore_3    //store in j
+   14:	iload_3     //load j
+   15:	aload_0        //load arr
+   16:	arraylength    //load length of arr
+   17:	if_icmpge	37   //if j < arr.length continue else goto 37
+   20:	aload_0        //load arr
+   21:	iload_3        //load j
+   22:	iaload         // arr[j]
+   23:	aload_0        //load arr
+   24:	iload_2        //load least
+   25:	iaload         //arr[least]
+   26:	if_icmpge	31   //compare the two, if not true goto 31
+   29:	iload_3        //load j
+   30:	istore_2       //store in least
+   31:	iinc	3, 1     //j++
+   34:	goto	14       //well...goto 14
+   37:	aload_0       //load arr
+   38:	iload_1       //load i
+   39:	iaload        //load object from arr at index i
+   40:	istore_3      // store at tmp
+   41:	aload_0       // load arr
+   42:	iload_1       //load i
+   43:	aload_0       //load arr
+   44:	iload_2       //load least
+   45:	iaload        // arr[least]
+   46:	iastore       // save in arr[i]
+   47:	aload_0       // load arr
+   48:	iload_2       //load least
+   49:	iload_3       //load tmp
+   50:	iastore       //arr[least] = tmp
+   51:	iinc	1, 1    //i++
+   54:	goto	2       //goto 2 :-) love it when they just write what they want :-)
+   57:	return       // return 
+  
+
+
