@@ -29,8 +29,6 @@ let keyword s =
     | "void"    -> VOID 
     | "while"   -> WHILE         
     | "for"     -> FOR         
-    | "switch"  -> SWITCH
-    | "case"    -> CASE
     | _         -> NAME s
  
 let cEscape s = 
@@ -79,8 +77,6 @@ rule Token = parse
   | ']'             { RBRACK }
   | ';'             { SEMI }
   | ','             { COMMA }
-  | '?'             { QMARK }
-  | ':'             { COLON }
   | "//"            { EndLineComment lexbuf; Token lexbuf }
   | "/*"            { Comment lexbuf; Token lexbuf }
   | '"'             { CSTSTRING (String [] lexbuf) }

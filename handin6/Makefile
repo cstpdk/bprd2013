@@ -5,19 +5,16 @@ parser:
 	fsyacc.exe --module CPar MicroC/CPar.fsy
 
 fsi: lexer parser
-	fsharpi --readline -r /home/csp/lib/fsharppower/bin/FSharp.PowerPack.dll MicroC/Absyn.fs MicroC/CPar.fs MicroC/CLex.fs MicroC/Parse.fs MicroC/Machine.fs MicroC/Comp.fs MicroC/ParseAndComp.fs 
+	fsharpi --readline -r /home/csp/lib/fsharppower/bin/FSharp.PowerPack.dll MicroC/Absyn.fs MicroC/CPar.fs MicroC/CLex.fs MicroC/Parse.fs MicroC/Interp.fs MicroC/ParseAndRun.fs
 
-8.1: lexer parser
-	fsharpi --readline -r /home/csp/lib/fsharppower/bin/FSharp.PowerPack.dll MicroC/Absyn.fs MicroC/CPar.fs MicroC/CLex.fs MicroC/Parse.fs MicroC/Machine.fs MicroC/Comp.fs MicroC/ParseAndComp.fs < 81.fs
+7.1:
+	fsharpi --readline -r /home/csp/lib/fsharppower/bin/FSharp.PowerPack.dll MicroC/Absyn.fs MicroC/CPar.fs MicroC/CLex.fs MicroC/Parse.fs MicroC/Interp.fs MicroC/ParseAndRun.fs < 71.fs
 
-8.3: lexer parser
-	fsharpi --readline -r /home/csp/lib/fsharppower/bin/FSharp.PowerPack.dll MicroC/Absyn.fs MicroC/CPar.fs MicroC/CLex.fs MicroC/Parse.fs MicroC/Machine.fs MicroC/Comp.fs MicroC/ParseAndComp.fs < 83.fs
+7.2:
+	fsharpi --readline -r /home/csp/lib/fsharppower/bin/FSharp.PowerPack.dll MicroC/Absyn.fs MicroC/CPar.fs MicroC/CLex.fs MicroC/Parse.fs MicroC/Interp.fs MicroC/ParseAndRun.fs < 72.fs
 
-8.4: lexer parser
-	fsharpi --readline -r /home/csp/lib/fsharppower/bin/FSharp.PowerPack.dll MicroC/Absyn.fs MicroC/CPar.fs MicroC/CLex.fs MicroC/Parse.fs MicroC/Machine.fs MicroC/Comp.fs MicroC/ParseAndComp.fs < 84.fs
+7.3: lexer parser
+	fsharpi --readline -r /home/csp/lib/fsharppower/bin/FSharp.PowerPack.dll MicroC/Absyn.fs MicroC/CPar.fs MicroC/CLex.fs MicroC/Parse.fs MicroC/Interp.fs MicroC/ParseAndRun.fs < 73.fs
 
-8.5: lexer parser
-	fsharpi --readline -r /home/csp/lib/fsharppower/bin/FSharp.PowerPack.dll MicroC/Absyn.fs MicroC/CPar.fs MicroC/CLex.fs MicroC/Parse.fs MicroC/Machine.fs MicroC/Comp.fs MicroC/ParseAndComp.fs < 85.fs
-
-8.6: lexer parser
-	fsharpi --readline -r /home/csp/lib/fsharppower/bin/FSharp.PowerPack.dll MicroC/Absyn.fs MicroC/CPar.fs MicroC/CLex.fs MicroC/Parse.fs MicroC/Machine.fs MicroC/Comp.fs MicroC/ParseAndComp.fs < 86.fs
+7.4: lexer parser
+	fsharpi --readline -r /home/csp/lib/fsharppower/bin/FSharp.PowerPack.dll MicroC/Absyn.fs MicroC/CPar.fs MicroC/CLex.fs MicroC/Parse.fs MicroC/Interp.fs MicroC/ParseAndRun.fs < 74.fs

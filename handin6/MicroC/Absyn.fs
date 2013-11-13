@@ -3,7 +3,7 @@
    sestoft@itu.dk 2009-09-25
 
    Must precede Interp.fs, Comp.fs and Contcomp.fs in Solution Explorer
- *)
+*)
 
 module Absyn
 
@@ -23,7 +23,6 @@ and expr =
   | Andalso of expr * expr           (* Sequential and              *)
   | Orelse of expr * expr            (* Sequential or               *)
   | Call of string * expr list       (* Function call f(...)        *)
-  | Conditional of expr * expr * expr       
   | PreInc of access
   | PreDec of access
                                                                    
@@ -38,11 +37,7 @@ and stmt =
   | Expr of expr                     (* Expression statement   e;   *)
   | Return of expr option            (* Return from method          *)
   | Block of stmtordec list          (* Block: grouping and scope   *)
-  | Switch of expr * case list
-
-and case =
-  | Case of expr * stmt
-
+                                                                   
 and stmtordec =                                                    
   | Dec of typ * string              (* Local variable declaration  *)
   | Stmt of stmt                     (* A statement                 *)

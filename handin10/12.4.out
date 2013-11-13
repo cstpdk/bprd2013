@@ -1,0 +1,409 @@
+
+F# Interactive for F# 3.0 (Open Source Edition)
+Freely distributed under the Apache 2.0 Open Source License
+
+For help type #help;;
+
+[Loading /home/csp/projects/itu/5.semester/bprd/handins/handin10/MicroC/Absyn.fs
+ Loading /home/csp/projects/itu/5.semester/bprd/handins/handin10/MicroC/CPar.fs
+ Loading /home/csp/projects/itu/5.semester/bprd/handins/handin10/MicroC/CLex.fs
+ Loading /home/csp/projects/itu/5.semester/bprd/handins/handin10/MicroC/Parse.fs
+ Loading /home/csp/projects/itu/5.semester/bprd/handins/handin10/MicroC/Machine.fs
+ Loading /home/csp/projects/itu/5.semester/bprd/handins/handin10/MicroC/Contcomp.fs
+ Loading /home/csp/projects/itu/5.semester/bprd/handins/handin10/MicroC/Comp.fs
+ Loading /home/csp/projects/itu/5.semester/bprd/handins/handin10/MicroC/ParseAndContcomp.fs]
+
+namespace FSI_0002
+  type typ =
+    | TypI
+    | TypC
+    | TypA of typ * int option
+    | TypP of typ
+  and expr =
+    | Access of access
+    | Assign of access * expr
+    | Addr of access
+    | CstI of int
+    | Prim1 of string * expr
+    | Prim2 of string * expr * expr
+    | Andalso of expr * expr
+    | Orelse of expr * expr
+    | Call of string * expr list
+    | Cond of expr * expr * expr
+  and access =
+    | AccVar of string
+    | AccDeref of expr
+    | AccIndex of access * expr
+  and stmt =
+    | If of expr * stmt * stmt
+    | While of expr * stmt
+    | Expr of expr
+    | Return of expr option
+    | Block of stmtordec list
+  and stmtordec =
+    | Dec of typ * string
+    | Stmt of stmt
+  and topdec =
+    | Fundec of typ option * string * (typ * string) list * stmt
+    | Vardec of typ * string
+  and program = | Prog of topdec list
+
+
+namespace FSI_0002
+  val compose1 : f:('a -> 'b) -> g:('b -> 'c) * s:'d -> ('a -> 'c) * 'd
+  val nl : Absyn.expr
+  type token =
+    | EOF
+    | LPAR
+    | RPAR
+    | LBRACE
+    | RBRACE
+    | LBRACK
+    | RBRACK
+    | SEMI
+    | COMMA
+    | ASSIGN
+    | AMP
+    | NOT
+    | SEQOR
+    | SEQAND
+    | EQ
+    | NE
+    | GT
+    | LT
+    | GE
+    | LE
+    | PLUS
+    | MINUS
+    | TIMES
+    | DIV
+    | MOD
+    | CHAR
+    | ELSE
+    | IF
+    | INT
+    | NULL
+    | PRINT
+    | PRINTLN
+    | RETURN
+    | VOID
+    | WHILE
+    | CSTSTRING of string
+    | NAME of string
+    | CSTINT of int
+    | CSTBOOL of int
+  type tokenId =
+    | TOKEN_EOF
+    | TOKEN_LPAR
+    | TOKEN_RPAR
+    | TOKEN_LBRACE
+    | TOKEN_RBRACE
+    | TOKEN_LBRACK
+    | TOKEN_RBRACK
+    | TOKEN_SEMI
+    | TOKEN_COMMA
+    | TOKEN_ASSIGN
+    | TOKEN_AMP
+    | TOKEN_NOT
+    | TOKEN_SEQOR
+    | TOKEN_SEQAND
+    | TOKEN_EQ
+    | TOKEN_NE
+    | TOKEN_GT
+    | TOKEN_LT
+    | TOKEN_GE
+    | TOKEN_LE
+    | TOKEN_PLUS
+    | TOKEN_MINUS
+    | TOKEN_TIMES
+    | TOKEN_DIV
+    | TOKEN_MOD
+    | TOKEN_CHAR
+    | TOKEN_ELSE
+    | TOKEN_IF
+    | TOKEN_INT
+    | TOKEN_NULL
+    | TOKEN_PRINT
+    | TOKEN_PRINTLN
+    | TOKEN_RETURN
+    | TOKEN_VOID
+    | TOKEN_WHILE
+    | TOKEN_CSTSTRING
+    | TOKEN_NAME
+    | TOKEN_CSTINT
+    | TOKEN_CSTBOOL
+    | TOKEN_end_of_input
+    | TOKEN_error
+  type nonTerminalId =
+    | NONTERM__startMain
+    | NONTERM_Main
+    | NONTERM_Topdecs
+    | NONTERM_Topdec
+    | NONTERM_Vardec
+    | NONTERM_Vardesc
+    | NONTERM_Fundec
+    | NONTERM_Paramdecs
+    | NONTERM_Paramdecs1
+    | NONTERM_Block
+    | NONTERM_StmtOrDecSeq
+    | NONTERM_Stmt
+    | NONTERM_StmtM
+    | NONTERM_StmtU
+    | NONTERM_Expr
+    | NONTERM_ExprNotAccess
+    | NONTERM_AtExprNotAccess
+    | NONTERM_Access
+    | NONTERM_Exprs
+    | NONTERM_Exprs1
+    | NONTERM_Const
+    | NONTERM_Type
+  val tagOfToken : t:token -> int
+  val tokenTagToTokenId : tokenIdx:int -> tokenId
+  val prodIdxToNonTerminal : prodIdx:int -> nonTerminalId
+  val _fsyacc_endOfInputTag : int
+  val _fsyacc_tagOfErrorTerminal : int
+  val token_to_string : t:token -> string
+  val _fsyacc_dataOfToken : t:token -> System.Object
+  val _fsyacc_gotos : uint16 []
+  val _fsyacc_sparseGotoTableRowOffsets : uint16 []
+  val _fsyacc_stateToProdIdxsTableElements : uint16 []
+  val _fsyacc_stateToProdIdxsTableRowOffsets : uint16 []
+  val _fsyacc_action_rows : int
+  val _fsyacc_actionTableElements : uint16 []
+  val _fsyacc_actionTableRowOffsets : uint16 []
+  val _fsyacc_reductionSymbolCounts : uint16 []
+  val _fsyacc_productionToNonTerminalTable : uint16 []
+  val _fsyacc_immediateActions : uint16 []
+  val _fsyacc_reductions : unit -> (Parsing.IParseState -> obj) []
+  val tables : unit -> Parsing.Tables<token>
+  val engine :
+    lexer:(Lexing.LexBuffer<'a> -> token) ->
+      lexbuf:Lexing.LexBuffer<'a> -> startState:int -> obj
+  val Main :
+    lexer:(Lexing.LexBuffer<'a> -> token) ->
+      lexbuf:Lexing.LexBuffer<'a> -> Absyn.program
+
+
+namespace FSI_0002
+  val lexemeAsString : lexbuf:Lexing.LexBuffer<char> -> string
+  val keyword : s:string -> CPar.token
+  val cEscape : s:string -> char
+  val trans : uint16 [] array
+  val actions : uint16 []
+  val _fslex_tables : Lexing.UnicodeTables
+  val _fslex_dummy : unit -> 'a
+  val Token : lexbuf:Lexing.LexBuffer<char> -> CPar.token
+  val Comment : lexbuf:Lexing.LexBuffer<char> -> unit
+  val EndLineComment : lexbuf:Lexing.LexBuffer<char> -> unit
+  val String : chars:char list -> lexbuf:Lexing.LexBuffer<char> -> string
+  val _fslex_Token :
+    _fslex_state:int -> lexbuf:Lexing.LexBuffer<char> -> CPar.token
+  val _fslex_Comment :
+    _fslex_state:int -> lexbuf:Lexing.LexBuffer<char> -> unit
+  val _fslex_EndLineComment :
+    _fslex_state:int -> lexbuf:Lexing.LexBuffer<char> -> unit
+  val _fslex_String :
+    chars:char list ->
+      _fslex_state:int -> lexbuf:Lexing.LexBuffer<char> -> string
+
+
+namespace FSI_0002
+  val fromString : str:string -> Absyn.program
+  val fromFile : filename:string -> Absyn.program
+
+
+namespace FSI_0002
+  type label = string
+  type instr =
+    | Label of label
+    | CSTI of int
+    | ADD
+    | SUB
+    | MUL
+    | DIV
+    | MOD
+    | EQ
+    | LT
+    | NOT
+    | DUP
+    | SWAP
+    | LDI
+    | STI
+    | GETBP
+    | GETSP
+    | INCSP of int
+    | GOTO of label
+    | IFZERO of label
+    | IFNZRO of label
+    | CALL of int * label
+    | TCALL of int * int * label
+    | RET of int
+    | PRINTI
+    | PRINTC
+    | LDARGS
+    | STOP
+  val resetLabels : (unit -> unit)
+  val newLabel : (unit -> string)
+  type 'data env = (string * 'data) list
+  val lookup : env:(string * 'a) list -> x:string -> 'a
+  val CODECSTI : int
+  val CODEADD : int
+  val CODESUB : int
+  val CODEMUL : int
+  val CODEDIV : int
+  val CODEMOD : int
+  val CODEEQ : int
+  val CODELT : int
+  val CODENOT : int
+  val CODEDUP : int
+  val CODESWAP : int
+  val CODELDI : int
+  val CODESTI : int
+  val CODEGETBP : int
+  val CODEGETSP : int
+  val CODEINCSP : int
+  val CODEGOTO : int
+  val CODEIFZERO : int
+  val CODEIFNZRO : int
+  val CODECALL : int
+  val CODETCALL : int
+  val CODERET : int
+  val CODEPRINTI : int
+  val CODEPRINTC : int
+  val CODELDARGS : int
+  val CODESTOP : int
+  val makelabenv :
+    addr:int * labenv:(label * int) list ->
+      instr:instr -> int * (label * int) list
+  val emitints :
+    getlab:(label -> int) -> instr:instr -> ints:int list -> int list
+  val code2ints : code:instr list -> int list
+
+
+namespace FSI_0002
+  type bstmtordec =
+    | BDec of Machine.instr list
+    | BStmt of Absyn.stmt
+  val addINCSP : m1:int -> C:Machine.instr list -> Machine.instr list
+  val addLabel : C:Machine.instr list -> Machine.label * Machine.instr list
+  val makeJump : C:Machine.instr list -> Machine.instr * Machine.instr list
+  val makeCall :
+    m:int -> lab:Machine.label -> C:Machine.instr list -> Machine.instr list
+  val deadcode : C:Machine.instr list -> Machine.instr list
+  val addNOT : C:Machine.instr list -> Machine.instr list
+  val addJump :
+    jump:Machine.instr -> C:Machine.instr list -> Machine.instr list
+  val addIFZRO :
+    lab:Machine.label -> C:Machine.instr list -> Machine.instr list
+  val addGOTO :
+    lab:Machine.label -> C:Machine.instr list -> Machine.instr list
+  val addCST : i:int -> C:Machine.instr list -> Machine.instr list
+  type 'data env = (string * 'data) list
+  val lookup : env:(string * 'a) list -> x:string -> 'a
+  type var =
+    | Glovar of int
+    | Locvar of int
+  type varEnv = (var * Absyn.typ) env * int
+  type paramdecs = (Absyn.typ * string) list
+  type funEnv = (Machine.label * Absyn.typ option * paramdecs) env
+  val allocate :
+    kind:(int -> var) ->
+      typ:Absyn.typ * x:string ->
+        (var * Absyn.typ) env * int -> varEnv * Machine.instr list
+  val bindParam :
+    env:(string * (var * Absyn.typ)) list * fdepth:int ->
+      typ:Absyn.typ * x:string -> varEnv
+  val bindParams :
+    paras:(Absyn.typ * string) list ->
+      env:(var * Absyn.typ) env * fdepth:int -> varEnv
+  val makeGlobalEnvs :
+    topdecs:Absyn.topdec list -> varEnv * funEnv * Machine.instr list
+  val cStmt :
+    stmt:Absyn.stmt ->
+      (var * Absyn.typ) env * int ->
+        funEnv:funEnv -> C:Machine.instr list -> Machine.instr list
+  val bStmtordec :
+    stmtOrDec:Absyn.stmtordec ->
+      (var * Absyn.typ) env * int -> bstmtordec * varEnv
+  val cExpr :
+    e:Absyn.expr ->
+      (var * Absyn.typ) env * int ->
+        funEnv:funEnv -> C:Machine.instr list -> Machine.instr list
+  val cAccess :
+    access:Absyn.access ->
+      (var * Absyn.typ) env * int ->
+        funEnv:funEnv -> C:Machine.instr list -> Machine.instr list
+  val cExprs :
+    es:Absyn.expr list ->
+      (var * Absyn.typ) env * int ->
+        funEnv:funEnv -> C:Machine.instr list -> Machine.instr list
+  val callfun :
+    f:string ->
+      es:Absyn.expr list ->
+        (var * Absyn.typ) env * int ->
+          funEnv:funEnv -> C:Machine.instr list -> Machine.instr list
+  val cProgram : Absyn.program -> Machine.instr list
+  val intsToFile : inss:int list -> fname:string -> unit
+  val contCompileToFile :
+    program:Absyn.program -> fname:string -> Machine.instr list
+
+
+namespace FSI_0002
+  type 'data env = (string * 'data) list
+  val lookup : env:(string * 'a) list -> x:string -> 'a
+  type var =
+    | Glovar of int
+    | Locvar of int
+  type varEnv = (var * Absyn.typ) env * int
+  type paramdecs = (Absyn.typ * string) list
+  type funEnv = (Machine.label * Absyn.typ option * paramdecs) env
+  val allocate :
+    kind:(int -> var) ->
+      typ:Absyn.typ * x:string ->
+        (var * Absyn.typ) env * int -> varEnv * Machine.instr list
+  val bindParam :
+    env:(string * (var * Absyn.typ)) list * fdepth:int ->
+      typ:Absyn.typ * x:string -> varEnv
+  val bindParams :
+    paras:(Absyn.typ * string) list -> (var * Absyn.typ) env * int -> varEnv
+  val makeGlobalEnvs :
+    topdecs:Absyn.topdec list -> varEnv * funEnv * Machine.instr list
+  val cStmt :
+    stmt:Absyn.stmt ->
+      (var * Absyn.typ) env * int -> funEnv:funEnv -> Machine.instr list
+  val cStmtOrDec :
+    stmtOrDec:Absyn.stmtordec ->
+      (var * Absyn.typ) env * int ->
+        funEnv:funEnv -> varEnv * Machine.instr list
+  val cExpr :
+    e:Absyn.expr ->
+      (var * Absyn.typ) env * int -> funEnv:funEnv -> Machine.instr list
+  val cAccess :
+    access:Absyn.access ->
+      (var * Absyn.typ) env * int -> funEnv:funEnv -> Machine.instr list
+  val cExprs :
+    es:Absyn.expr list ->
+      (var * Absyn.typ) env * int -> funEnv:funEnv -> Machine.instr list
+  val callfun :
+    f:string ->
+      es:Absyn.expr list ->
+        (var * Absyn.typ) env * int -> funEnv:funEnv -> Machine.instr list
+  val cProgram : Absyn.program -> Machine.instr list
+  val intsToFile : inss:int list -> fname:string -> unit
+  val compileToFile :
+    program:Absyn.program -> fname:string -> Machine.instr list
+
+
+namespace FSI_0002
+  val fromString : (string -> Absyn.program)
+  val fromFile : (string -> Absyn.program)
+  val contCompileToFile : (Absyn.program -> string -> Machine.instr list)
+
+> > val it : Machine.instr list =
+  [LDARGS; CALL (1,"L1"); STOP; Label "L1"; INCSP 1; GETBP; CSTI 1; ADD;
+   CSTI 1889; STI; INCSP -1; GOTO "L3"; Label "L2"; GETBP; CSTI 1; ADD; GETBP;
+   CSTI 1; ADD; LDI; CSTI 1; ADD; STI; INCSP -1; GETBP; CSTI 1; ADD; LDI;
+   CSTI 4; MOD; IFNZRO "L3"; GETBP; CSTI 1; ADD; LDI; CSTI 100; MOD;
+   IFNZRO "L4"; GETBP; CSTI 1; ADD; LDI; CSTI 400; MOD; IFNZRO "L3";
+   Label "L4"; GETBP; CSTI 1; ADD; LDI; PRINTI; INCSP -1; Label "L3"; GETBP;
+   CSTI 1; ADD; LDI; GETBP; LDI; LT; IFNZRO "L2"; RET 1]
